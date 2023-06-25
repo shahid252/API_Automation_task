@@ -1,0 +1,6 @@
+stepdefinitions\ActivityStepDefinitions.class
+stepdefinitions\IntegrationTestStepDefinitions.class
+models\ActivityDetails.class
+services\ActivitiesService.class
+runner\TestRunner.class
+services\IntegrationTestService.class
