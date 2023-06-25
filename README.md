@@ -1,6 +1,6 @@
 # API_Automation_task
 
-This project is a RestASsured and Cucumber based automation framework for API testing. It utilizes Maven as the build automation tool and generates multiple reports to provide comprehensive test results.
+This project is a RestAssured and Cucumber based automation framework for API testing. It utilizes Maven for dependency management and build automation tool, generates multiple reports to provide comprehensive test results.
 
 ## Overview
 
