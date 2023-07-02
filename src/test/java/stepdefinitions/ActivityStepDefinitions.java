@@ -45,13 +45,13 @@ public class ActivityStepDefinitions {
     }
 
     /**
-     * Verifying the response status code.
+     * Verifying that the response status code matches the expected status code.
      *
-     * @param statusCode The expected status code.
+     * @param expectedStatusCode The expected status code.
      */
-    @Then("the response status code should be {int}")
-    public void verifyResponseStatusCode(int statusCode) {
-        assertEquals(statusCode, response.getStatusCode());
+    @Then("The status code should be {int}")
+    public void the_status_code_should_be(int expectedStatusCode) {
+        response.then().statusCode(expectedStatusCode);
     }
 
     /**

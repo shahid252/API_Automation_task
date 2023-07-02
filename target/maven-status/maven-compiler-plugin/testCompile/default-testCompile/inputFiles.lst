@@ -1,6 +1,6 @@
-D:\Assignment\API_Automation_Assignment\src\test\java\runner\TestRunner.java
-D:\Assignment\API_Automation_Assignment\src\test\java\models\ActivityDetails.java
-D:\Assignment\API_Automation_Assignment\src\test\java\services\IntegrationTestService.java
-D:\Assignment\API_Automation_Assignment\src\test\java\services\ActivitiesService.java
-D:\Assignment\API_Automation_Assignment\src\test\java\stepdefinitions\IntegrationTestStepDefinitions.java
-D:\Assignment\API_Automation_Assignment\src\test\java\stepdefinitions\ActivityStepDefinitions.java
+C:\Users\pc\IdeaProjects\API_Automation_task\src\test\java\stepdefinitions\ActivityStepDefinitions.java
+C:\Users\pc\IdeaProjects\API_Automation_task\src\test\java\stepdefinitions\IntegrationTestStepDefinitions.java
+C:\Users\pc\IdeaProjects\API_Automation_task\src\test\java\services\ActivitiesService.java
+C:\Users\pc\IdeaProjects\API_Automation_task\src\test\java\runner\TestRunner.java
+C:\Users\pc\IdeaProjects\API_Automation_task\src\test\java\services\IntegrationTestService.java
+C:\Users\pc\IdeaProjects\API_Automation_task\src\test\java\models\ActivityDetails.java

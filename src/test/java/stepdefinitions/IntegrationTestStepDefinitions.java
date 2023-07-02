@@ -91,11 +91,10 @@ public class IntegrationTestStepDefinitions {
      *
      * @param expectedStatusCode The expected status code.
      */
-    @Then("The status code should be {int}")
+    @Then("The Status code should be {int}")
     public void the_status_code_should_be(int expectedStatusCode) {
         response.then().statusCode(expectedStatusCode);
     }
-
     /**
      * Verifying that the response body contains the expected response.
      */
