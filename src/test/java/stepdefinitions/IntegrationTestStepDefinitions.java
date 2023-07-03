@@ -81,7 +81,7 @@ public class IntegrationTestStepDefinitions {
      */
     @When("User Get Cover photo by bookid {int} with API endpoint {string}")
     public void user_get_cover_photo_by_bookid_with_api_endpoint(int bookId, String endpoint) {
-        String getCoverPhotoEndpoint = IntegrationTestService.getBaseUrl() + endpoint + "/" + bookId;
+        String getCoverPhotoEndpoint = IntegrationTestService.getBaseUrl() + endpoint + "/covers/" + bookId;
 
         response = given().get(getCoverPhotoEndpoint);
     }
