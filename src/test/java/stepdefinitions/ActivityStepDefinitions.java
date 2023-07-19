@@ -4,11 +4,15 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import models.ActivityDetails;
+import requestbodies.RequestBodies;
 import org.testng.Assert;
 import services.ActivitiesService;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
@@ -25,16 +29,6 @@ public class ActivityStepDefinitions {
     private ActivityDetails createdActivity;
     private String specificActivityId;
     private ActivityDetails updatedActivity;
-
-    private String postRequestBody = "{\"id\": 515," +
-            " \"title\": \"string\"," +
-            " \"dueDate\": \"2023-06-18T16:37:25.172Z\"," +
-            " \"completed\": true}";
-
-
-    private String updateRequestBody = "{\"id\": 514, " +
-            "\"title\": \"Updated shahid\", \"dueDate\":" +
-            " \"2023-06-18T16:37:25.172Z\", \"completed\": true}";
 
     /**
      * Sending a GET request to the Activities endpoint.
@@ -69,9 +63,11 @@ public class ActivityStepDefinitions {
      */
     @When("Users Send a POST request to Activities endpoint")
     public void sendPostRequestToActivitiesEndpoint() {
+
+
         response = given()
                 .contentType(ContentType.JSON)
-                .body(postRequestBody)
+                .body(RequestBodies.createPostRequestBody())
                 .post(ActivitiesService.POST_ACTIVITY);
 
         createdActivity = response.as(ActivityDetails.class);
@@ -125,7 +121,7 @@ public class ActivityStepDefinitions {
         String specificActivityEndpoint = ActivitiesService.getUpdateActivityEndpoint(specificActivityId);
         response = given()
                 .contentType(ContentType.JSON)
-                .body(updateRequestBody)
+                .body(RequestBodies.createUpdateRequestBody())
                 .put(specificActivityEndpoint);
 
         updatedActivity = response.as(ActivityDetails.class);
