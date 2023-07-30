@@ -6,6 +6,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
+import requestbodies.RequestBodies;
 import services.IntegrationTestService;
 
 import static io.restassured.RestAssured.given;
@@ -27,18 +28,9 @@ public class IntegrationTestStepDefinitions {
     @When("User Creates a book with API endpoint {string}")
     public void user_creates_a_book_with_api_endpoint(String endpoint) {
         String createBookEndpoint = IntegrationTestService.getBaseUrl() + endpoint;
-        String requestBody = "{\n" +
-                "    \"id\": 1,\n" +
-                "    \"title\": \"string\",\n" +
-                "    \"description\": \"string\",\n" +
-                "    \"pageCount\": 0,\n" +
-                "    \"excerpt\": \"string\",\n" +
-                "    \"publishDate\": \"2023-06-24T17:19:30.296Z\"\n" +
-                "}";
-
         request = given()
                 .contentType(ContentType.JSON)
-                .body(requestBody);
+                .body(RequestBodies.createBookRequestBody());
 
         response = request.post(createBookEndpoint);
     }
@@ -61,14 +53,10 @@ public class IntegrationTestStepDefinitions {
     @When("Creates Cover photo with API endpoint {string}")
     public void creates_cover_photo_with_api_endpoint(String endpoint) {
         String createCoverPhotoEndpoint = IntegrationTestService.getBaseUrl() + endpoint;
-        String requestBody = "{\n" +
-                "    \"idBook\": 1,\n" +
-                "    \"url\": \"https://placeholdit.imgix.net/~text?txtsize=33&txt=Book 1&w=250&h=350\"\n" +
-                "}";
 
         request = given()
                 .contentType(ContentType.JSON)
-                .body(requestBody);
+                .body(RequestBodies.createCoverRequestBody());
 
         response = request.post(createCoverPhotoEndpoint);
     }
@@ -101,10 +89,6 @@ public class IntegrationTestStepDefinitions {
     @Then("Response body should contain the expected response")
     public void response_body_should_contain_the_expected_response() {
         String actualResponseBody = response.getBody().asString();
-        String expectedResponseBody =
-                "{\n" + "    \"idBook'\": 1,\n" +
-                        "    \"url\": \"https://placeholdit.imgix.net/~text?txtsize=33&txt=Book 1&w=250&h=350\"\n" +
-                        "}";
-        Assert.assertEquals("Response body does not match the expected JSON", expectedResponseBody, actualResponseBody);
+        Assert.assertEquals("Response body does not match the expected JSON", RequestBodies.expectedResponseBody(), actualResponseBody);
     }
 }
